@@ -12,7 +12,14 @@
     <button id="bluetoothButton">블루투스</button>
     
     <script>
-        document.getElementById("bluetoothButton").addEventListener("click", () => {
+        const bluetoothButton = document.getElementById("bluetoothButton")
+
+    bluetoothButton.addEventListener("click", () => {
+        navigator.bluetooth.requestDevice({
+            filters: [{ services: ["0xFFE0"] }]
+        })
+    })
+    /*    document.getElementById("bluetoothButton").addEventListener("click", () => {
             navigator.bluetooth.requestDevice({
                 filters: [{ services: ["0xFFE0"] }]
             })
@@ -23,7 +30,7 @@
             .catch(error => {
                 console.error("블루투스 기기 요청 중 오류 발생:", error);
             });
-        });
+        })        */
     </script>
 </body>
 </html>
