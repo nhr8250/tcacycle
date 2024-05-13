@@ -12,12 +12,8 @@
     <button id="bluetoothButton">블루투스</button>
     
     <script>
-        const bluetoothButton = document.getElementById("bluetoothButton")
-
-    document.getElementById("bluetoothButton").addEventListener("click", () => {
-    navigator.bluetooth.requestDevice({
-        filters: [{ services: ["00001101-0000-1000-8000-00805F9B34FB"] }]
-    })
+        document.getElementById("bluetoothButton").addEventListener("click", () => {
+    navigator.bluetooth.requestDevice()
     .then(device => {
         console.log("연결된 기기:", device.name);
         // 여기에 연결된 기기와 상호작용하는 코드를 추가하세요.
@@ -26,6 +22,7 @@
         console.error("블루투스 기기 요청 중 오류 발생:", error);
     });
 });
+
 
     </script>
 </body>
